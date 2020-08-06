@@ -3,11 +3,8 @@ using MedicalInstitution.Models;
 using MedicalInstitution.Services;
 using MedicalInstitution.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -128,8 +125,5 @@ namespace MedicalInstitution.ViewModel
         {
             return true;
         }
-
-        
-        
     }
 }

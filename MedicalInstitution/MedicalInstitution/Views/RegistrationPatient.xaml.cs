@@ -1,20 +1,11 @@
 ﻿using MedicalInstitution.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MedicalInstitution.Views
 {
@@ -32,8 +23,6 @@ namespace MedicalInstitution.Views
         public bool reLozinkaBool;
         public bool jmbgBool;
         public bool accountNumberBool;
-        public bool positionBool;
-        public bool salaryBool;
         public static bool napravljenaIzmena = false;
 
         MainWindow mainWindow = new MainWindow();
@@ -48,109 +37,7 @@ namespace MedicalInstitution.Views
             mainWindow.Images1.Visibility = Visibility.Visible;
             mainWindow.Images0.Visibility = Visibility.Collapsed;
         }
-
-        //public bool korisnik;
-        //public bool lozinka;
-
-        //private void KorekcijaImena(object sender, TextChangedEventArgs e)
-        //{
-        //    if (NameTextBox.Text.Length <= 5)
-        //    {
-        //        NameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
-        //        NameTextBox.Foreground = new SolidColorBrush(Colors.Red);
-        //        korisnik = false;
-        //    }
-        //    else
-        //    {
-        //        NameTextBox.BorderBrush = new SolidColorBrush(Colors.Green);
-        //        NameTextBox.Foreground = new SolidColorBrush(Colors.Black);
-        //        korisnik = true;
-        //    }
-        //    Prijavi();
-        //}
-
-        //private void KorekcijaLozinke(object sender, RoutedEventArgs e)
-        //{
-        //    if (passwordBox.Password.Length <= 5)
-        //    {
-        //        passwordBox.BorderBrush = new SolidColorBrush(Colors.Red);
-        //        passwordBox.Foreground = new SolidColorBrush(Colors.Red);
-        //        lozinka = false;
-        //    }
-        //    else
-        //    {
-        //        passwordBox.BorderBrush = new SolidColorBrush(Colors.Green);
-        //        passwordBox.Foreground = new SolidColorBrush(Colors.Black);
-        //        lozinka = true;
-        //    }
-        //    Prijavi();
-        //}
-
-        //private void KorekcijaLozinkeTxt(object sender, RoutedEventArgs e)
-        //{
-        //    if (txtPasswordBox.Text.Length <= 5)
-        //    {
-        //        passwordBox.BorderBrush = new SolidColorBrush(Colors.Red);
-        //        passwordBox.Foreground = new SolidColorBrush(Colors.Red);
-        //        lozinka = false;
-        //    }
-        //    else
-        //    {
-        //        passwordBox.BorderBrush = new SolidColorBrush(Colors.Green);
-        //        passwordBox.Foreground = new SolidColorBrush(Colors.Black);
-        //        lozinka = true;
-        //    }
-        //    Prijavi();
-        //}
-
-
-        //private void TxtBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        //{
-        //    e.Handled = e.Key == Key.Space;
-        //    if (e.Key == Key.Space)
-        //    {
-        //        SystemSounds.Beep.Play();
-        //    }
-        //}
-
-        //private Boolean TextAllowedVelikaSlova(String s)
-        //{
-        //    foreach (Char c in s.ToCharArray())
-        //    {
-        //        if (Char.IsLower(c) || Char.IsUpper(c) || Char.IsDigit(c) || Char.IsControl(c))
-        //        {
-        //            loginFail.Visibility = Visibility.Collapsed;
-        //            tbCapsLock.Visibility = Visibility.Collapsed;
-        //            continue;
-        //        }
-        //        else
-        //        {
-        //            tbCapsLock.Visibility = Visibility.Visible;
-        //            tbCapsLock.Text = "Only letters and numbers are allowed";
-        //            SystemSounds.Beep.Play();
-        //            return false;
-        //        }
-        //    }
-        //    return true;
-        //}
-
-        ////samo mala slova i brojevi
-        //private void PreviewTextInputHandlerVelika(Object sender, TextCompositionEventArgs e)
-        //{
-        //    e.Handled = !TextAllowedVelikaSlova(e.Text);
-        //}
-        //private void Prijavi()
-        //{
-        //    if (lozinka == true && korisnik == true)
-        //    {
-        //        btnPrijavi.IsEnabled = true;
-        //    }
-        //    else
-        //    {
-        //        btnPrijavi.IsEnabled = false;
-        //    }
-        //}
-
+        
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.Close();

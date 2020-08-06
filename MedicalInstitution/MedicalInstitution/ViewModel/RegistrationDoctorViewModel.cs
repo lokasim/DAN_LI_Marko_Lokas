@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using MedicalInstitution.Command;
@@ -203,7 +201,6 @@ namespace MedicalInstitution.ViewModel
                 Xceed.Wpf.Toolkit.MessageBox.Show(ex.ToString());
             }
         }
-
 
         private bool CanSignUpExecute()
         {
