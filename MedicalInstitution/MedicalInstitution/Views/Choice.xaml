@@ -4,9 +4,80 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalInstitution.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Choice" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="L-company (Login)"
+        Height="150"
+        Width="400"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <Border BorderBrush="DeepPink"
+            Height="150"
+            Width="400"
+            BorderThickness="3">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Button Grid.Column="1"
+                        x:Name="Exit"
+                        Command="{Binding Exit, UpdateSourceTrigger=PropertyChanged}"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                        ToolTip="Exit App"
+                        BorderBrush="#FFC34A4A"
+                        Background="#FFC34A4A"
+                        Height="22"
+                        Width="22"
+                        Margin="10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Visibility="Visible">
+                    <materialDesign:PackIcon Kind="Close"
+                                             Height="16"
+                                             Width="16" />
+                </Button>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="30"
+                           Foreground="Blue"
+                           FontWeight="Bold">Vi ste?</TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="20"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button x:Name="btnPatient"
+                            materialDesign:ButtonAssist.CornerRadius="20"
+                            Height="45"
+                            FontWeight="Bold"
+                            Width="100"
+                            Margin="50,0,0,0"
+                            Command="{Binding Patient, UpdateSourceTrigger=PropertyChanged}"
+                            IsDefault="True"
+                            Click="BtnPatient_Click">Pacijent</Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBlock Background="Blue" Width="2" Height="50"></TextBlock>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Button x:Name="btnDoctor"
+                            materialDesign:ButtonAssist.CornerRadius="20"
+                            Height="45"
+                            FontWeight="Bold"
+                            Width="100"
+                            Margin="0,0,50,0"
+                            Command="{Binding Doctor, UpdateSourceTrigger=PropertyChanged}"
+                            IsDefault="True"
+                            Click="BtnDoctor_Click">Lekar</Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>
+

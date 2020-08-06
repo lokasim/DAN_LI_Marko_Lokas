@@ -41,4 +41,8 @@ C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitutio
 C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\MedicalInstitution.csproj.CopyComplete
 C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\MedicalInstitution.exe
 C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\MedicalInstitution.pdb
-C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\MedicalInstitution.csprojAssemblyReference.cache
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\MedicalInstitution_Content.g.cs
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\bin\Debug\EntityFramework.dll
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\bin\Debug\EntityFramework.xml
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\bin\Debug\EntityFramework.SqlServer.xml

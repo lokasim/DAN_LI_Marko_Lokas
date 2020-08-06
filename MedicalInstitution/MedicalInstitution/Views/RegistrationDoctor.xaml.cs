@@ -164,8 +164,8 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "At least three characters";
+                tbCapsLock.Foreground = new SolidColorBrush(Colors.Red);
+                tbCapsLock.Text = "Minimum 3 slova";
             }
             if (txtIme.Text.Length <= 2)
             {
@@ -194,8 +194,8 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "At least three characters";
+                tbCapsLock.Foreground = new SolidColorBrush(Colors.Red);
+                tbCapsLock.Text = "Minimum 3 slova";
             }
 
             if (txtPrezime.Text.Length <= 2)
@@ -225,8 +225,8 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "At least six characters";
+                tbCapsLock.Foreground = new SolidColorBrush(Colors.Red);
+                tbCapsLock.Text = "Korisničko ime treba da \nsadrži minimum 6 karaktera";
             }
             if (txtKorisnickoIme.Text.Length <= 5)
             {
@@ -258,8 +258,8 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "At least six characters";
+                //tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
+                tbCapsLock.Text = "Lozinka treba dasadrži\nminimum 6 karaktera";
             }
             string lozinka = txtLozinkaRegistracija.Text.ToString();
             string reLozinka = txtReLozinkaRegistracija.Text.ToString();
@@ -302,8 +302,7 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "Passwords must match";
+                tbCapsLock.Text = "Ponovljena lozinka se ne poklapa";
             }
             string lozinka = txtLozinkaRegistracija.Text.ToString();
             string reLozinka = txtReLozinkaRegistracija.Text.ToString();
@@ -333,8 +332,7 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "The JMBG must contain 13 digits";
+                tbCapsLock.Text = "JMBG mora da sadrži 13 cifara";
             }
 
             if (txtJMBG.Text.Length != 13)
@@ -364,8 +362,7 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "The Account NUmber must contain 18 digits";
+                tbCapsLock.Text = "Broj tekućeg računa mora da \nsadrži minimum 18 cifara";
             }
             if (txtAccountNumber.Text.Length != 18)
             {
@@ -491,7 +488,7 @@ namespace MedicalInstitution.Views
                 else
                 {
                     tbCapsLock.Visibility = Visibility.Visible;
-                    tbCapsLock.Text = "Only letters and numbers are allowed";
+                    tbCapsLock.Text = "Dozvoljena su samo slova i brojevi";
                     SystemSounds.Beep.Play();
                     return false;
                 }

@@ -93,16 +93,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicineModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MedicineModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicineModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MedicineModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicineModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblDoctor.cs">
+      <DependentUpon>MedicineModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblPatient.cs">
+      <DependentUpon>MedicineModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSickLeave.cs">
+      <DependentUpon>MedicineModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\Service.cs" />
     <Compile Include="ViewModel\ChoiceViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\RegistrationDoctorViewModel.cs" />
     <Compile Include="ViewModel\RegistrationPatientViewModel.cs" />
+    <Compile Include="ViewModel\ValidationJMBG.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="Views\Choice.xaml.cs">
       <DependentUpon>Choice.xaml</DependentUpon>
@@ -177,6 +192,12 @@
     <Content Include="Models\MedicineModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MedicineModel.Context.cs</LastGenOutput>
+      <DependentUpon>MedicineModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MedicineModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MedicineModel.edmx</DependentUpon>
+      <LastGenOutput>MedicineModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

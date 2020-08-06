@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MedicalInstitutionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblDoctor">
+    <Key>
+      <PropertyRef Name="DoctorID" />
+    </Key>
+    <Property Name="DoctorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DoctorSurname" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UsernameLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblPatients" Relationship="Self.FK_Patient_Doctor" FromRole="tblDoctor" ToRole="tblPatient" />
+  </EntityType>
+  <EntityType Name="tblPatient">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientNameSurname" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HealthInsuranceCardNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UsernameLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Doctor" Type="Int32" />
+    <NavigationProperty Name="tblDoctor" Relationship="Self.FK_Patient_Doctor" FromRole="tblPatient" ToRole="tblDoctor" />
+  </EntityType>
+  <EntityType Name="tblSickLeave">
+    <Key>
+      <PropertyRef Name="SickLeaveID" />
+    </Key>
+    <Property Name="SickLeaveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SendingSLRequest" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Reason" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmergencySL" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Patient_Doctor">
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="0..1" />
+    <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDoctor">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="tblPatient">
+        <PropertyRef Name="Doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MedicalInstitutionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblDoctors" EntityType="Self.tblDoctor" />
+    <EntitySet Name="tblPatients" EntityType="Self.tblPatient" />
+    <EntitySet Name="tblSickLeaves" EntityType="Self.tblSickLeave" />
+    <AssociationSet Name="FK_Patient_Doctor" Association="Self.FK_Patient_Doctor">
+      <End Role="tblDoctor" EntitySet="tblDoctors" />
+      <End Role="tblPatient" EntitySet="tblPatients" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
