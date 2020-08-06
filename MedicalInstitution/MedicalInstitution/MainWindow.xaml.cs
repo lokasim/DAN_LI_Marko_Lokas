@@ -1,4 +1,5 @@
 ﻿using MedicalInstitution.ViewModel;
+using MedicalInstitution.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -183,6 +184,32 @@ namespace MedicalInstitution
         private void Registruj_Click(object sender, RoutedEventArgs e)
         {
 
+            RegistrationDoctor registrationDoctor = new RegistrationDoctor();
+            RegistrationPatient registrationPatient = new RegistrationPatient();
+            Choice choice = new Choice();
+            choice.ShowDialog();
+          
+
+            if(ChoiceViewModel.choosen == 1)
+            {
+                SignUp.Children.Clear();
+                SignUp.Children.Add(registrationPatient);
+
+                login.Visibility = Visibility.Collapsed;
+                Images0.Visibility = Visibility.Visible;
+                Images1.Visibility = Visibility.Collapsed;
+                SignUp.Visibility = Visibility.Visible;
+            }
+            else if(ChoiceViewModel.choosen == 2)
+            {
+                SignUp.Children.Clear();
+                SignUp.Children.Add(registrationDoctor);
+
+                login.Visibility = Visibility.Collapsed;
+                Images0.Visibility = Visibility.Visible;
+                Images1.Visibility = Visibility.Collapsed;
+                SignUp.Visibility = Visibility.Visible;
+            }
         }
     }
 }

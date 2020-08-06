@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,16 +45,16 @@ namespace MedicalInstitution.ViewModel
                 OnPropertyChanged("Doctor");
             }
         }
-        private bool isUpdateEmployee;
-        public bool IsUpdateEmployee
+        private bool isUpdateDoctor;
+        public bool IsUpdateDoctor
         {
             get
             {
-                return isUpdateEmployee;
+                return isUpdateDoctor;
             }
             set
             {
-                isUpdateEmployee = value;
+                isUpdateDoctor = value;
             }
         }
 
@@ -61,6 +62,8 @@ namespace MedicalInstitution.ViewModel
         public RegistrationDoctorViewModel(RegistrationDoctor registrationDoctor)
         {
             this.registrationDoctor = registrationDoctor;
+
+            doctor = new tblDoctor();
         }
 
         private ICommand backToLogin;
@@ -91,8 +94,8 @@ namespace MedicalInstitution.ViewModel
             registrationDoctor.txtKorisnickoIme.Text = "";
             registrationDoctor.txtLozinkaRegistracija.Text = "";
             registrationDoctor.txtReLozinkaRegistracija.Text = "";
-
-            return;
+            main.ShowDialog();
+            //return;
         }
         private bool CanBackLoginExecute()
         {
@@ -118,103 +121,82 @@ namespace MedicalInstitution.ViewModel
             {
                 Service s = new Service();
 
-                //string jmbg = Employee.JMBG;
-                //string AN = Employee.AccountNumber;
-                //string user = Employee.UsernameLogin;
-                //string email = Employee.EMail;
+                string jmbg = Doctor.JMBG;
+                string AN = Doctor.AccountNumber;
+                string user = Doctor.UsernameLogin;
 
-                //if (!ValidationJMBG.CheckJMBG(jmbg))
-                //{
-                //    return;
-                //}
-                ////uniqueness check JMBG
-                //tblEmployee employee = s.GetEmployeeJMBG(jmbg);
+                if (!ValidationJMBG.CheckJMBG(jmbg))
+                {
+                    return;
+                }
+                //uniqueness check JMBG
+                tblDoctor doctorJMBG = s.GetDoctorJMBG(jmbg);
 
-                //if (employee != null)
-                //{
-                //    Xceed.Wpf.Toolkit.MessageBox.Show("JMBG already exists in the database, try another.", "JMBG");
-                //    return;
-                //}
+                if (doctorJMBG != null)
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Korisnik već postoji sa tim JMBG-om, pokušajte opet.", "JMBG");
+                    return;
+                }
 
-                ////uniqueness check Account Number
-                //tblEmployee employeeAN = s.GetEmployeeAccountNumber(AN);
+                //uniqueness check JMBG
+                tblPatient patientJMBG = s.GetPatientJMBG(jmbg);
 
-                //if (employeeAN != null)
-                //{
-                //    Xceed.Wpf.Toolkit.MessageBox.Show("Account Number already exists in the database, try another.", "Account Number");
-                //    return;
-                //}
+                if (patientJMBG != null)
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Korisnik već postoji sa tim JMBG-om, pokušajte opet.", "JMBG");
+                    return;
+                }
 
-                ////uniqueness check username
-                //tblEmployee employeeUser = s.GetEmployeeUsername(user);
+                //uniqueness check Account Number
+                tblDoctor doctorAN = s.GetAccountNumber(AN);
 
-                //if (employeeUser != null)
-                //{
-                //    Xceed.Wpf.Toolkit.MessageBox.Show("Username already exists in the database, try another.", "Username");
-                //    return;
-                //}
+                if (doctorAN != null)
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Broj tekućeg računa već neko koristi, pokušajte sa drugim brojem.", "Broj tekućeg računa");
+                    return;
+                }
 
-                ////uniqueness check email address
-                //tblEmployee employeeEmail = s.GetEmployeeEmail(email);
+                //uniqueness check username
+                tblDoctor employeeUserDoctor = s.GetDoctorUsername(user);
 
-                //if (employeeEmail != null)
-                //{
-                //    Xceed.Wpf.Toolkit.MessageBox.Show("E-mail already exists in the database, try another.", "E-mail");
-                //    return;
-                //}
+                if (employeeUserDoctor != null)
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Korisničko ime je zauzeto, pokušajte neko drugo.", "Korisničko ime");
+                    return;
+                }
 
-                //if (main.cbxSector.Text != "" && main.cbxAccessLevel.Text != "")
-                //{
-                //    Employee.SectorName = Convert.ToInt32(Sector.SectorID);
-                //    Employee.AccessLevel = Convert.ToInt32(AccessLevel.AccessLevelID);
-                //}
-                //CreateManager.logName = main.txtIme.Text.ToString();
-                //CreateManager.logSurname = main.txtPrezime.Text.ToString();
-                //CreateManager.logJMBG = main.txtJMBG.Text.ToString();
-                //CreateManager.logEmail = main.txtEmail.Text.ToString();
-                //CreateManager.logUsername = main.txtKorisnickoIme.Text.ToString();
-                //CreateManager.logPassword = main.txtLozinkaRegistracija.Text.ToString();
-                //CreateManager.logSector = main.cbxSector.Text.ToString();
-                //CreateManager.logAccess = main.cbxAccessLevel.Text.ToString();
-                //CreateManager.logPosition = main.txtPosition.Text.ToString();
+                //uniqueness check usernamePatient
+                tblPatient employeeUserPatient = s.GetPatientUsername(user);
 
-                ////Save manager in txt file
-                //string logMessage = $"Manager: [{CreateManager.logName} {CreateManager.logSurname }] Position: [{CreateManager.logPosition}] Sector: [{ CreateManager.logSector}] " +
-                //    $"Access Level: [{ CreateManager.logAccess}] Username: [{CreateManager.logUsername }] Password: [{CreateManager.logPassword }] Email: [{ CreateManager.logEmail}] JMBG: [{CreateManager.logJMBG }] ";
+                if (employeeUserPatient != null)
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Korisničko ime je zauzeto, pokušajte neko drugo.", "Korisničko ime");
+                    return;
+                }
 
-                //if (main.cbxSector.Text != "" && main.cbxAccessLevel.Text != "")
-                //{
-                //    Thread logThread = new Thread(() => LogMethod(logMessage));
-                //    logThread.Start();
-                //}
+                // Hash Password
+                var hasher = new SHA256Managed();
+                var unhashed = Encoding.Unicode.GetBytes(this.Doctor.PasswordLogin);
+                var hashed = hasher.ComputeHash(unhashed);
+                var hashedPassword = Convert.ToBase64String(hashed);
 
-                //s.AddEmployee(Employee);
-                //IsUpdateEmployee = true;
-                //main.NameTextBox.Text = "";
-                //main.passwordBox.Password = "";
-                //main.txtPasswordBox.Text = "";
-                //main.login.Visibility = Visibility.Visible;
-                //main.Images0.Visibility = Visibility.Collapsed;
-                //main.Images1.Visibility = Visibility.Visible;
-                //main.SignUp.Visibility = Visibility.Collapsed;
+                this.Doctor.PasswordLogin = hashedPassword;
 
-                //string poruka = "Add Employee: " + Employee.EmployeeName + " " + Employee.EmployeeSurname;
-                //Xceed.Wpf.Toolkit.MessageBox.Show(poruka, "successfully added employee", MessageBoxButton.OK);
+                s.AddDoctor(Doctor);
+                IsUpdateDoctor = true;
+                main.NameTextBox.Text = "";
+                main.passwordBox.Password = "";
+                main.login.Visibility = Visibility.Visible;
+                main.Images0.Visibility = Visibility.Collapsed;
+                main.Images1.Visibility = Visibility.Visible;
+                main.SignUp.Visibility = Visibility.Collapsed;
 
-                //main.txtIme.Text = "";
-                //main.txtPrezime.Text = "";
-                //main.txtJMBG.Text = "";
-                //main.dpDatumRodjenja.Text = "";
-                //main.txtAccountNumber.Text = "";
-                //main.txtEmail.Text = "";
-                //main.txtKorisnickoIme.Text = "";
-                //main.txtLozinkaRegistracija.Text = "";
-                //main.txtReLozinkaRegistracija.Text = "";
-                //main.txtSalary.Text = "";
-                //main.txtPosition.Text = "";
-                //main.cbxSector.Text = "";
-                //main.cbxAccessLevel.Text = "";
-                //main.NameTextBox.Focus();
+                string poruka = doctor.DoctorName + " " + doctor.DoctorSurname + ",\nUspešno ste se registrovali.";
+                Xceed.Wpf.Toolkit.MessageBox.Show(poruka, "Registracija", MessageBoxButton.OK);
+
+                main.ShowDialog();
+                
+                main.NameTextBox.Focus();
             }
             catch (Exception ex)
             {

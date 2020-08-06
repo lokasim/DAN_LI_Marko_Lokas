@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MedicalInstitutionModelStoreContainer" CdmEntityContainer="MedicalInstitutionEntities">
+    <EntitySetMapping Name="tblDoctors">
+      <EntityTypeMapping TypeName="MedicalInstitutionModel.tblDoctor">
+        <MappingFragment StoreEntitySet="tblDoctor">
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="DoctorSurname" ColumnName="DoctorSurname" />
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="UsernameLogin" ColumnName="UsernameLogin" />
+          <ScalarProperty Name="PasswordLogin" ColumnName="PasswordLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPatients">
+      <EntityTypeMapping TypeName="MedicalInstitutionModel.tblPatient">
+        <MappingFragment StoreEntitySet="tblPatient">
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="PatientNameSurname" ColumnName="PatientNameSurname" />
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="HealthInsuranceCardNumber" ColumnName="HealthInsuranceCardNumber" />
+          <ScalarProperty Name="UsernameLogin" ColumnName="UsernameLogin" />
+          <ScalarProperty Name="PasswordLogin" ColumnName="PasswordLogin" />
+          <ScalarProperty Name="Doctor" ColumnName="Doctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSickLeaves">
+      <EntityTypeMapping TypeName="MedicalInstitutionModel.tblSickLeave">
+        <MappingFragment StoreEntitySet="tblSickLeave">
+          <ScalarProperty Name="SickLeaveID" ColumnName="SickLeaveID" />
+          <ScalarProperty Name="SendingSLRequest" ColumnName="SendingSLRequest" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="EmergencySL" ColumnName="EmergencySL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

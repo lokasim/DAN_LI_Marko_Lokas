@@ -164,8 +164,7 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "At least three characters";
+                tbCapsLock.Text = "Minimum 3 karaktera";
             }
             if (txtIme.Text.Length <= 2)
             {
@@ -194,8 +193,7 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "At least six characters";
+                tbCapsLock.Text = "Korisničko ime treba da \nsadrži minimum 6 karaktera";
             }
             if (txtKorisnickoIme.Text.Length <= 5)
             {
@@ -227,8 +225,7 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "At least six characters";
+                tbCapsLock.Text = "Lozinka treba dasadrži\nminimum 6 karaktera";
             }
             string lozinka = txtLozinkaRegistracija.Text.ToString();
             string reLozinka = txtReLozinkaRegistracija.Text.ToString();
@@ -271,8 +268,7 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "Passwords must match";
+                tbCapsLock.Text = "Ponovljena lozinka se ne poklapa";
             }
             string lozinka = txtLozinkaRegistracija.Text.ToString();
             string reLozinka = txtReLozinkaRegistracija.Text.ToString();
@@ -302,8 +298,7 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "The JMBG must contain 13 digits";
+                tbCapsLock.Text = "JMBG mora da sadrži 13 cifara";
             }
 
             if (txtJMBG.Text.Length != 13)
@@ -329,28 +324,27 @@ namespace MedicalInstitution.Views
 
         private void AccountNumber(object sender, TextChangedEventArgs e)
         {
-            if (txtAccountNumber.Focus())
+            if (txtHealthNumber.Focus())
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Foreground = new SolidColorBrush(Colors.White);
-                tbCapsLock.Text = "The Account NUmber must contain 18 digits";
+                tbCapsLock.Text = "Broj zdravstvenog  osiguranja\nmora da sadrži minimum 12 cifara";
             }
-            if (txtAccountNumber.Text.Length != 18)
+            if (txtHealthNumber.Text.Length != 12)
             {
-                txtAccountNumber.BorderBrush = new SolidColorBrush(Colors.Red);
-                txtAccountNumber.Foreground = new SolidColorBrush(Colors.Red);
+                txtHealthNumber.BorderBrush = new SolidColorBrush(Colors.Red);
+                txtHealthNumber.Foreground = new SolidColorBrush(Colors.Red);
                 accountNumberBool = false;
             }
             else
             {
                 tbCapsLock.Visibility = Visibility.Collapsed;
-                txtAccountNumber.BorderBrush = new SolidColorBrush(Colors.Blue);
-                txtAccountNumber.Foreground = new SolidColorBrush(Colors.Blue);
+                txtHealthNumber.BorderBrush = new SolidColorBrush(Colors.Blue);
+                txtHealthNumber.Foreground = new SolidColorBrush(Colors.Blue);
                 accountNumberBool = true;
             }
-            txtAccountNumber.MaxLength = 18;
-            if (txtAccountNumber.Text.Length >= txtAccountNumber.MaxLength)
+            txtHealthNumber.MaxLength = 12;
+            if (txtHealthNumber.Text.Length >= txtHealthNumber.MaxLength)
             {
                 SystemSounds.Beep.Play();
             }
@@ -459,7 +453,7 @@ namespace MedicalInstitution.Views
                 else
                 {
                     tbCapsLock.Visibility = Visibility.Visible;
-                    tbCapsLock.Text = "Only letters and numbers are allowed";
+                    tbCapsLock.Text = "Dozvoljen je upis samo slova i brojeva";
                     SystemSounds.Beep.Play();
                     return false;
                 }

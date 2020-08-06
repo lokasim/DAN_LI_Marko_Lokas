@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\App.xaml
-42114605755
-
-15-1250237159
-20-244777366
-MainWindow.xaml;Views\Choice.xaml;Views\RegistrationDoctor.xaml;Views\RegistrationPatient.xaml;
+6642039460
+2-1360353862
+26-101931908
+25-723602547
+MainWindow.xaml;Views\Choice.xaml;Views\DoctorMenu.xaml;Views\PatientMenu.xaml;Views\RegistrationDoctor.xaml;Views\RegistrationPatient.xaml;
 
 False
 
