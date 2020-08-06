@@ -1,7 +1,11 @@
 ﻿using MedicalInstitution.Command;
+using MedicalInstitution.Models;
+using MedicalInstitution.Services;
+using MedicalInstitution.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -69,7 +73,50 @@ namespace MedicalInstitution.ViewModel
         {
             try
             {
-                
+                string username = main.NameTextBox.Text;
+
+                // Hash password
+                var hasher = new SHA256Managed();
+                var unhashed = Encoding.Unicode.GetBytes(main.passwordBox.Password);
+                var hashed = hasher.ComputeHash(unhashed);
+                var hashedPassword = Convert.ToBase64String(hashed);
+
+                string password = hashedPassword;
+
+                Service s = new Service();
+
+                //Checks if there is a username and password in the database
+                tblDoctor doctorLogin = s.GetUsernamePasswordDoctor(username, password);
+                tblPatient patientLogin = s.GetUsernamePasswordPatient(username, password);
+
+                if (doctorLogin != null)
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show($"{username}, dobrodošli.", "L-Medical Institution");
+
+
+                    DoctorMenu doctorMenu = new DoctorMenu
+                    {
+                        Owner = main
+                    };
+                    main.Hide();
+                    doctorMenu.ShowDialog();
+                }
+                else if (patientLogin != null)
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show($"{username}, dobrodošli.", "L-Medical Institution");
+
+
+                    PatientMenu patientMenu = new PatientMenu
+                    {
+                        Owner = main
+                    };
+                    main.Hide();
+                    patientMenu.ShowDialog();
+                }
+                else
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Korisničko ime ili lozinka nisu ispravni,\n pokušajte opet.", "Nalog nije pronađen.");
+                }
             }
             catch (Exception ex)
             {

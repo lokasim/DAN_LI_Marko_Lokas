@@ -114,13 +114,21 @@
     </Compile>
     <Compile Include="Services\Service.cs" />
     <Compile Include="ViewModel\ChoiceViewModel.cs" />
+    <Compile Include="ViewModel\DoctorMenuViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\PatientMenuViewModel.cs" />
     <Compile Include="ViewModel\RegistrationDoctorViewModel.cs" />
     <Compile Include="ViewModel\RegistrationPatientViewModel.cs" />
     <Compile Include="ViewModel\ValidationJMBG.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="Views\Choice.xaml.cs">
       <DependentUpon>Choice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DoctorMenu.xaml.cs">
+      <DependentUpon>DoctorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientMenu.xaml.cs">
+      <DependentUpon>PatientMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegistrationDoctor.xaml.cs">
       <DependentUpon>RegistrationDoctor.xaml</DependentUpon>
@@ -141,6 +149,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Choice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DoctorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PatientMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

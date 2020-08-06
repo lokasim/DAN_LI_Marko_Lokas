@@ -239,5 +239,61 @@ namespace MedicalInstitution.Services
                 return null;
             }
         }
+
+        public tblDoctor GetUsernamePasswordDoctor(string username, string password)
+        {
+            try
+            {
+                using (MedicalInstitutionEntities context = new MedicalInstitutionEntities())
+                {
+                    tblDoctor doctor = (from e in context.tblDoctors where e.UsernameLogin.Equals(username) where e.PasswordLogin.Equals(password) select e).First();
+
+
+                    return doctor;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
+        public tblPatient GetUsernamePasswordPatient(string username, string password)
+        {
+            try
+            {
+                using (MedicalInstitutionEntities context = new MedicalInstitutionEntities())
+                {
+                    tblPatient patient = (from e in context.tblPatients where e.UsernameLogin.Equals(username) where e.PasswordLogin.Equals(password) select e).First();
+
+
+                    return patient;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
+        public List<tblDoctor> GetAllDoctor()
+        {
+            try
+            {
+                using (MedicalInstitutionEntities context = new MedicalInstitutionEntities())
+                {
+                    List<tblDoctor> list = new List<tblDoctor>();
+                    list = (from x in context.tblDoctors select x).ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception: " + ex.Message.ToString());
+                return null;
+            }
+        }
     }
 }

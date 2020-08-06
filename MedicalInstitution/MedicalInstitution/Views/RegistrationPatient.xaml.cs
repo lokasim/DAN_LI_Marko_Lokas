@@ -328,7 +328,7 @@ namespace MedicalInstitution.Views
             {
                 tbCapsLock.Visibility = Visibility.Visible;
                 tbCapsLock.FontSize = 16;
-                tbCapsLock.Text = "Broj zdravstvenog  osiguranja\nmora da sadrži minimum 11 cifara";
+                tbCapsLock.Text = "Broj zdravstvenog  osiguranja\nmora da sadrži minimum 12 cifara";
             }
             if (txtHealthNumber.Text.Length != 12)
             {

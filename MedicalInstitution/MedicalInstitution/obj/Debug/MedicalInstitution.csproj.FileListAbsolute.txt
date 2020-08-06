@@ -46,3 +46,8 @@ C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitutio
 C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\bin\Debug\EntityFramework.xml
 C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\Views\DoctorMenu.g.cs
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\Views\PatientMenu.g.cs
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\Views\DoctorMenu.baml
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\Views\PatientMenu.baml
+C:\Users\panonit\Desktop\DAN_LI_Marko_Lokas\MedicalInstitution\MedicalInstitution\obj\Debug\MedicalInstitution.csprojAssemblyReference.cache
